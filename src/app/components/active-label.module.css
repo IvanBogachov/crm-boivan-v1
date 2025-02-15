@@ -1,0 +1,10 @@
+.label {
+    border-radius: 28px;
+    padding: 4px 14px;
+    width: 83px;
+    height: 28px;
+    align-items: center;
+    background: #dcfce7;
+
+    color: #15803D;
+}
