@@ -8,6 +8,7 @@ export interface ModalProps {
   show: boolean;
   onClose: () => void;
 }
+
 export default function Modal({ show, children, onClose }: ModalProps) {
   return (
     <Transition.Root as={Fragment} show={show}>
