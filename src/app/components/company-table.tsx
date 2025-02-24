@@ -4,7 +4,7 @@ import React from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { getCompanies } from '@/lib/api';
 import CompanyRow from '@/app/components/company-row';
-
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface CompanyTableProps {}
 
 const headers = [

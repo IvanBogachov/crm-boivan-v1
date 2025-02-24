@@ -4,7 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import SidebarItem from '@/app/components/sidebar-item';
 import { usePathname, useRouter } from 'next/navigation';
-
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface SidebarProps {}
 
 export default function Sidebar({}: SidebarProps) {

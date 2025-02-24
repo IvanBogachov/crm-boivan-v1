@@ -1,7 +1,7 @@
 import React from 'react';
 import { getSummaryStats, SummaryStats } from '@/lib/api';
 import StatCard, { StatCardType } from '@/app/components/stat-card';
-
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface PageProps {}
 
 const labelByStat: Record<keyof SummaryStats, string> = {

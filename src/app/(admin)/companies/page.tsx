@@ -3,7 +3,7 @@ import { dehydrate, HydrationBoundary } from '@tanstack/react-query';
 import { getCompanies } from '@/lib/api';
 import getQueryClient from '@/lib/utils/getQueryClient';
 import CompanyTable from '@/app/components/company-table';
-
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface PageProps {}
 
 export default async function Page({}: PageProps) {
