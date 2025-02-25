@@ -111,7 +111,13 @@ export default function CompanyForm({ onSubmit }: CompanyFormProps) {
             </InputField>
           </div>
           <div className="flex flex-col flex-1 gap-5">
-            <InputField required label="Name" placeholder="Name" name="title" as="input" />
+            <InputField
+              required
+              label="Name"
+              placeholder="Name"
+              name="title"
+              as="input"
+            />
             <InputField
               required
               label="Category"
@@ -137,7 +143,7 @@ export default function CompanyForm({ onSubmit }: CompanyFormProps) {
               label="Description"
               placeholder="Description"
               name="description"
-              as="select"
+              as="input" // Змінено з as="select" на as="input"
             />
           </div>
         </div>
