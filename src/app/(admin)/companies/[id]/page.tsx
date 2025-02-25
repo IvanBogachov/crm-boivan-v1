@@ -7,26 +7,28 @@ import CompanyInfo from '@/app/components/company-info';
 import CompanyPromotions from '@/app/components/company-promotions';
 
 export interface PageProps {
-  params: { id: string };
+  params: { id: string }; // Оновлюємо тип params на синхронний об’єкт
 }
 
 export default async function Page({ params }: PageProps) {
   const queryClient = getQueryClient();
 
+  // Використовуємо params.id напряму, оскільки це серверний компонент
+  const companyId = params.id;
+
   await queryClient.prefetchQuery({
-    queryKey: ['companies', params.id],
-    queryFn: () => getCompany(params.id, { cache: 'no-store' }),
+    queryKey: ['companies', companyId],
+    queryFn: () => getCompany(companyId, { cache: 'no-store' }),
     staleTime: 10 * 1000,
   });
 
   await queryClient.prefetchQuery({
-    queryKey: ['promotions', params.id],
-    queryFn: () =>
-      getPromotions({ companyId: params.id }, { cache: 'no-store' }),
+    queryKey: ['promotions', companyId],
+    queryFn: () => getPromotions({ companyId }, { cache: 'no-store' }),
     staleTime: 10 * 1000,
   });
 
-  const company = queryClient.getQueryData(['companies', params.id]) as Company;
+  const company = queryClient.getQueryData(['companies', companyId]) as Company;
   if (!company) {
     notFound();
   }
@@ -37,10 +39,10 @@ export default async function Page({ params }: PageProps) {
     <HydrationBoundary state={dehydratedState}>
       <div className="py-6 px-10 grid grid-cols-12 gap-5">
         <div className="col-span-3">
-          <CompanyInfo companyId={params.id} />
+          <CompanyInfo companyId={companyId} />
         </div>
         <div className="col-span-9">
-          <CompanyPromotions companyId={params.id} />
+          <CompanyPromotions companyId={companyId} />
         </div>
       </div>
     </HydrationBoundary>
